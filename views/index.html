@@ -5,22 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sample Authentication App</title>
-  <link rel='stylesheet' href='../client/styles/styles.css';
-  <script src='server/server.js' defer></script>
+  <link rel='stylesheet' href='./styles/styles.css' async>
+  <script src='index.js' defer></script>
 </head>
 <body>
-
-  <form method='post' class='form'>
-    <div class='loginInput'>
-      <label for='username'>Username:</label>
-      <input type='text' name='username' id='username' required>
-    <div class='loginInput'>
-      <label for='password'>Password:</label>
-      <input type='password' name='password' id='password' required></div>
-    </div>
-    <div class='loginInput>'>
-      <input type='submit' value='sign in'>
-    </div>
-  </form>
+<div class='centered'>
+  <h1 id='loggedInMessage'></h1>
+  <button class='submitButton hidden' id='logoutButton'>log out</button>
+</div>
+<!-- A simple form that posts username and password on submit -->
+  <div class='loginForm' id='mainForm'>
+    <form onsubmit='return false' class='form'>
+      <div class='loginInput'>
+        <label for='username'>Username:</label>
+        <input type='text' name='username' id='username' required>
+      <div class='loginInput'>
+        <label for='password'>Password:</label>
+        <input type='password' name='password' id='password' required></div>
+      </div>
+      <div class='loginInput'>
+        <input type='submit' class='submitButton' id=loginButton value='sign in'>
+      </div>
+    </form>
+  </div>
+  <h1 id='wrongInputMessage'></h1>
 </body>
 </html>

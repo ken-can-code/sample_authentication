@@ -1,0 +1,50 @@
+/* very basic css */
+body {
+  background-color: whitesmoke;
+}
+
+.centered {
+  text-align: center;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.loginForm {
+  text-align: center;
+  font-size: 14pt;
+  font-weight: bold;
+  margin-top: 150px;
+}
+
+.loginInput {
+ margin: 10px; 
+}
+
+.submitButton {
+  background-color: rgb(226, 226, 237);
+  border: 1px solid;
+  border-radius: 5px;
+  height: 50px;
+  width: 250px;
+  font-size: 15pt;
+  margin: 0px auto;
+}
+
+.submitButton:hover {
+  background-color: rgb(151, 167, 185);
+  color: white;
+}
+
+#loggedInMessage {
+  text-align: center;
+  font-size: 18pt;
+  margin-top: 150px;
+}
+
+#wrongInputMessage {
+  text-align: center;
+  font-size: 18pt;
+  margin-top: 20px;
+}

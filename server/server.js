@@ -2,26 +2,36 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const express = require('express');
+const authController = require('./auth_controllers');
+const cookieController = require('./cookie_controller');
 
 const app = express();
 const PORT = 3000;
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.get(express.static(path.resolve(__dirname, '/views')));
+app.get(express.static(path.resolve(__dirname, '../views')));
+app.use(express.static(path.resolve(__dirname, '../client')));
 
+// couple simple route handlers
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../views/index.html'));
 });
 
-app.get('/secret', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../views/loggedIn.html'));
+app.get('/auth', cookieController.cookieController, (req, res) => {
+  res.status(200);
+  return res.json(res.locals);
 });
 
-app.post('auth', (req, res) => {
+app.post('/auth', authController.checkAuthentication, cookieController.cookieController, (req, res) => {
   res.status(200);
-  res.redirect('/secret');
+  return res.json(res.locals);
+});
+
+app.use('*', (req, res) => {
+  res.sendStatus(404);
 });
 
 app.listen(PORT, () => {
