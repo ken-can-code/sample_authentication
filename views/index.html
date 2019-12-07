@@ -5,9 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sample Authentication App</title>
-  <script src='bundle/bundle.js' defer></script>
+  <link rel='stylesheet' href='../client/styles/styles.css';
+  <script src='server/server.js' defer></script>
 </head>
 <body>
-  Hello World!
+
+  <form method='post' class='form'>
+    <div class='loginInput'>
+      <label for='username'>Username:</label>
+      <input type='text' name='username' id='username' required>
+    <div class='loginInput'>
+      <label for='password'>Password:</label>
+      <input type='password' name='password' id='password' required></div>
+    </div>
+    <div class='loginInput>'>
+      <input type='submit' value='sign in'>
+    </div>
+  </form>
 </body>
 </html>

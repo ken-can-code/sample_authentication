@@ -1,0 +1,31 @@
+{
+  "name": "sample-authentication",
+  "version": "1.0.0",
+  "description": "A simple authentication app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "start-dev": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ken-can-code/sample_authentication.git"
+  },
+  "author": "Ken Sakuma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ken-can-code/sample_authentication/issues"
+  },
+  "homepage": "https://github.com/ken-can-code/sample_authentication#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "pg": "^7.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
+}
