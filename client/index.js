@@ -25,6 +25,9 @@ const logoutChanges = () => {
   passwordInput.value = '';
 };
 
+// every refresh of page it checks if you have an 'ssid' cookie
+// If you do, it takes value and displays, which is the username
+// Also sets isLoggedIn to true in back end
 fetch('/auth')
   .then((res) => res.json())
   .then((resultObj) => {
@@ -34,6 +37,10 @@ fetch('/auth')
     }
   });
 
+// listener to listen for login button to be triggered
+// this works with click or enter key due to being a form in html
+// the form data is nullified using onsubmit='return false;'
+// if login and password match, isLoggedIn set to true in backend
 loginButton.addEventListener('click', () => {
   const username = usernameInput.value;
   const password = passwordInput.value;
@@ -56,6 +63,7 @@ loginButton.addEventListener('click', () => {
     });
 });
 
+  // runs changes for logout when logout button is pressed
 logoutButton.addEventListener('click', () => {
   logoutChanges();
 });

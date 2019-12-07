@@ -1,5 +1,5 @@
 
-// checks hardcoded password and proceeds next() if match
+// checks hardcoded password and sets isLoggedIn to true only if both match
 const checkAuthentication = (req, res, next) => {
   const { username, password } = req.body;
   if (username === 'castle' && password === 'password123') {
