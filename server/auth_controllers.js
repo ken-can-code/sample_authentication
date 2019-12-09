@@ -1,8 +1,9 @@
+const userList = require('../userlist');
 
-// checks hardcoded password and sets isLoggedIn to true only if both match
+// checks against required userlist object and sets isLoggedIn to true only if both match
 const checkAuthentication = (req, res, next) => {
   const { username, password } = req.body;
-  if (username === 'castle' && password === 'password123') {
+  if (userList[username] !== undefined && userList[username] === password) {
     res.locals.username = username;
     res.locals.isLoggedIn = true;
     return next();
